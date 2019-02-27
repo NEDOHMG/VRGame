@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
 
-    public float xOffset = 0.0f, yOffset = 0.35f, zOffset = 0.0f;
+    public float xOffset = 0.4f, yOffset = 0.35f, zOffset = 0.0f;
 
     public Vector3 totalOffSet;
 

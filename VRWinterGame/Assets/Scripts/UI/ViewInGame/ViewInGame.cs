@@ -10,6 +10,10 @@ public class ViewInGame : MonoBehaviour
     public Image downImage;
     public Image UpImage;
 
+    public Image normalImageVR;
+    public Image downImageVR;
+    public Image UpImageVR;
+
     public static ViewInGame sharedInstance;
 
     void Awake()
@@ -22,6 +26,11 @@ public class ViewInGame : MonoBehaviour
         normalImage.enabled = true;
         downImage.enabled = false;
         UpImage.enabled = false;
+
+        normalImageVR.enabled = true;
+        downImageVR.enabled = false;
+        UpImageVR.enabled = false;
+
     }
 
     public void StateNormal()
@@ -31,6 +40,11 @@ public class ViewInGame : MonoBehaviour
             normalImage.enabled = true;
             downImage.enabled = false;
             UpImage.enabled = false;
+
+            normalImageVR.enabled = true;
+            downImageVR.enabled = false;
+            UpImageVR.enabled = false;
+
         }
     }
 
@@ -41,6 +55,10 @@ public class ViewInGame : MonoBehaviour
             normalImage.enabled = false;
             downImage.enabled = true;
             UpImage.enabled = false;
+
+            normalImageVR.enabled = false;
+            downImageVR.enabled = true;
+            UpImageVR.enabled = false;
         }
     }
 
@@ -51,6 +69,10 @@ public class ViewInGame : MonoBehaviour
             normalImage.enabled = false;
             downImage.enabled = false;
             UpImage.enabled = true;
+
+            normalImageVR.enabled = false;
+            downImageVR.enabled = false;
+            UpImageVR.enabled = true;
         }
     }
 
@@ -59,6 +81,10 @@ public class ViewInGame : MonoBehaviour
         normalImage.enabled = true;
         downImage.enabled = false;
         UpImage.enabled = false;
+
+        normalImageVR.enabled = true;
+        downImageVR.enabled = false;
+        UpImageVR.enabled = false;
     }
 
 }

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static GameManager sharedInstance;
 
     public Canvas menuCanvas;
-    public Canvas gameCanvas;
+    // public Canvas gameCanvas;
     public Canvas gameCanvasVR;
     public Canvas gameOverCanvas;
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.menu;
         menuCanvas.enabled = true;
-        gameCanvas.enabled = false;
+        // gameCanvas.enabled = false;
         gameCanvasVR.enabled = false;
         gameOverCanvas.enabled = false;
     }
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         {
             // The logic of the principal menu
             menuCanvas.enabled = true;
-            gameCanvas.enabled = false;
+            // gameCanvas.enabled = false;
             gameCanvasVR.enabled = false;
             gameOverCanvas.enabled = false;
         }
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
             // This is the current scene or level of the game
             menuCanvas.enabled = false;
-            gameCanvas.enabled = true;
+            // gameCanvas.enabled = true;
             gameCanvasVR.enabled = true;
             gameOverCanvas.enabled = false;
         }
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         {
             // Gameover
             menuCanvas.enabled = false;
-            gameCanvas.enabled = false;
+            // gameCanvas.enabled = false;
             gameCanvasVR.enabled = false;
             gameOverCanvas.enabled = true;
         }

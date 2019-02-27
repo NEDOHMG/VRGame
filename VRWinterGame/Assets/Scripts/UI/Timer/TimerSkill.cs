@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class TimerSkill : MonoBehaviour
 {
-    public Text textGameMenuTimer;
+    // public Text textGameMenuTimer;
     public Text textGameOverTimer;
+
+    public Text textGameMenuTimerVR;
+    // public Text textGameOverTimerVR;
 
     public static TimerSkill sharedInstance;
 
@@ -49,7 +52,8 @@ public class TimerSkill : MonoBehaviour
         float t = Time.time - startTime;
         minutes = ((int)t / 60).ToString();
         seconds = (t % 60).ToString("f4");
-        textGameMenuTimer.text = minutes + " : " + seconds;
+        // textGameMenuTimer.text = minutes + " : " + seconds; // This is to display in the PC display
+        textGameMenuTimerVR.text = minutes + " : " + seconds; // This is to display in the VR camera
 
         if (showTheFinalTime == false)
         {
@@ -61,6 +65,7 @@ public class TimerSkill : MonoBehaviour
     void FinalTime()
     {
         textGameOverTimer.text = showMinutes + " : " + showSeconds;
+        // textGameOverTimerVR.text = showMinutes + " : " + showSeconds;
     }
 
 
@@ -80,7 +85,8 @@ public class TimerSkill : MonoBehaviour
         seconds = "";
         showMinutes = "";
         showSeconds = "";
-        textGameMenuTimer.text = "00:00";
+        // textGameMenuTimer.text = "00:00";
+        textGameMenuTimerVR.text = "00:00";
     }
 
 }

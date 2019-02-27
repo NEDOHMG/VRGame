@@ -431,6 +431,7 @@
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceModContext.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Camera\DisplaysActivation.cs" />
      <Compile Include="Assets\Scripts\Game\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game\ResetLevel.cs" />
      <Compile Include="Assets\Scripts\Jump\PlayerJump.cs" />
@@ -449,6 +450,7 @@
      <Compile Include="Assets\Scripts\UI\Timer\TimerTrigger.cs" />
      <Compile Include="Assets\Scripts\UI\ViewInGame\TriggerPlayerGuide.cs" />
      <Compile Include="Assets\Scripts\UI\ViewInGame\ViewInGame.cs" />
+     <Compile Include="Assets\Scripts\UI\VRGUI\FollowVRCamera.cs" />
      <Compile Include="Assets\Scripts\User\UserOffSet.cs" />
      <None Include="Assets\Models\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Models\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
