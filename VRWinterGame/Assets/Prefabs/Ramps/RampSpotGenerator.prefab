@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7843227961776144872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7843227961776144873}
+  - component: {fileID: 7843227961776144874}
+  m_Layer: 0
+  m_Name: RampSpotGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7843227961776144873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7843227961776144872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -119.87099, y: 2.158982, z: 67.95991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7843227961776144874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7843227961776144872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fd0396c8722b94688d5bf853703473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ramps:
+  - {fileID: 2494610001487756460, guid: 6ddbe5a65a742904db635724183eef00, type: 3}
+  - {fileID: 4838192349562236631, guid: 3f72b6a41623c6447bc22d585bfb73a2, type: 3}
+  - {fileID: 599531261969225016, guid: 5ca15ebfb27f28b49b43fda63e58ba26, type: 3}
+  - {fileID: 8192659156271210977, guid: f229f89e303391148bcc937d26e75533, type: 3}
+  - {fileID: 492462012082940201, guid: 93ef794d014e7da40bfaa8eae9fed04c, type: 3}
+  - {fileID: 7010526020421709011, guid: a9ffd06471c31af4ababab7da95c240a, type: 3}
+  - {fileID: 3720303755721120279, guid: ed26d9d9d96f6ef45964ead15e568f42, type: 3}
+  - {fileID: 5441443247168014865, guid: d949e5698923c80489f1c2665a14ca11, type: 3}
+  gameDifficulty: 2
+  levelOne: 0
