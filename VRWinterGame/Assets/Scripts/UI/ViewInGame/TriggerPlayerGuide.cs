@@ -8,7 +8,7 @@ public class TriggerPlayerGuide : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Go Up");
+            // Debug.Log("Go Up");
             GameObject.Find("Indicator").SendMessage("StateDown");
         }
     }
@@ -19,7 +19,7 @@ public class TriggerPlayerGuide : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Go Down");
+            // Debug.Log("Go Down");
             GameObject.Find("Indicator").SendMessage("StateHigh");
         }
     }

@@ -35,7 +35,7 @@ public class ResetLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         ObjectSpeed.sharedInstance.ResetPositionSpeedUser();
-        CameraController.sharedInstance.ResetCamera();
+        // CameraController.sharedInstance.ResetCamera();
         TimerSkill.sharedInstance.ResetTimerVariables();
     }
 

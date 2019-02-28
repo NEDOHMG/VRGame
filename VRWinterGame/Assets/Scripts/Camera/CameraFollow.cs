@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
 
     public float xOffset = 0.4f, yOffset = 0.35f, zOffset = 0.0f;
 
-    public Vector3 totalOffSet;
+    Vector3 totalOffSet;
 
     void Start()
     {

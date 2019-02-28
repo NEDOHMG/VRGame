@@ -450,7 +450,9 @@
      <Compile Include="Assets\Scripts\UI\Timer\TimerTrigger.cs" />
      <Compile Include="Assets\Scripts\UI\ViewInGame\TriggerPlayerGuide.cs" />
      <Compile Include="Assets\Scripts\UI\ViewInGame\ViewInGame.cs" />
+     <Compile Include="Assets\Scripts\UI\VRGUI\CameraAngleDeclination.cs" />
      <Compile Include="Assets\Scripts\UI\VRGUI\FollowVRCamera.cs" />
+     <Compile Include="Assets\Scripts\UI\VRGUI\GUIVRStopInclination.cs" />
      <Compile Include="Assets\Scripts\User\UserOffSet.cs" />
      <None Include="Assets\Models\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Models\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
