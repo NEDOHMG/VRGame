@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1642969200641682}
+  m_IsPrefabAsset: 1
+--- !u!1 &1642969200641682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4505031891053810}
+  - component: {fileID: 114219601625829646}
+  - component: {fileID: 114259476619922628}
+  - component: {fileID: 114594220945065290}
+  - component: {fileID: 114882575205030388}
+  - component: {fileID: 114134472570589146}
+  - component: {fileID: 114720268787421760}
+  m_Layer: 0
+  m_Name: Intel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4505031891053810
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.28054, y: 1.5079317, z: 20.384283}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114134472570589146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa67dd6694b3214890983778e3ffe10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialHandlerPGM: {fileID: 114720268787421760}
+  serialPGMString: 
+--- !u!114 &114219601625829646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0ef77446be0094c98f2992a86e53c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftKneeText: {fileID: 0}
+  LeftHipText: {fileID: 0}
+  RightKneeText: {fileID: 0}
+  RightHipText: {fileID: 0}
+  LeftKneeFlexionAngle: 0
+  LeftKneeExtensionAngle: 0
+  RightKneeFlexionAngle: 0
+  RightKneeExtensionAngle: 0
+  LeftHipFlexionAngle: 0
+  RightHipFlexionAngle: 0
+  LeftHipExtensionAngle: 0
+  RightHipExtensionAngle: 0
+  FlexionTime: 0
+  ExtensionTime: 0
+  TrackingWindow: 2
+  Calibrated: 0
+  Stopped: 0
+  noisefilter: 0.002
+  ExerciseState: 0
+  colorActuator: 1001
+  fps: 0
+  MotionTimer: 0
+  threshold: 0
+  emergencythreshold: 0.3
+  emergencycounter: 0
+  calTrackingWindow: 3
+  _calspineList: []
+  _deltacalspineY: []
+  LateralsWindowSize: 0
+  LeftKneeLateralPositions: []
+  LeftKneeLateralDeltas: []
+  LeftKneeAverageDelta: 0
+  RightKneeLateralPositions: []
+  RightKneeLateralDeltas: []
+  RightKneeAverageDelta: 0
+  StopWindowSize: 0
+  SpineBaseVerticalPositions: []
+  SpineBaseVerticalDeltas: []
+  SpineBaseAverageDelta: 0
+  SpineBaseCurrentAverage: 0
+  resistanceMode: 0
+  maxDeltaLeft: 0
+  maxDeltaRight: 0
+--- !u!114 &114259476619922628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3615d1c67ef557a4c84fe1ed888de321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114594220945065290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f2864524eb8364aba4ef6045c328f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialHandler: {fileID: 114882575205030388}
+--- !u!114 &114720268787421760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32bfb893e5474c6459d575db456fb34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portNamePGM: 2
+  baudRatePGM: 2
+--- !u!114 &114882575205030388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642969200641682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1126736aabd618e47bfbe82f8cd183f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: 7
+  baudRate: 2

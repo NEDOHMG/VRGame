@@ -35,9 +35,8 @@ public class FollowVRCamera : MonoBehaviour
         
         if(inclination && modifyPosition.y <= 3.6)
         {
-            Debug.Log("Y is modifing");
             modifyPosition.y += 0.005f;
-            Debug.Log("x: " + transform.position.x + " y: " + transform.position.y + " z: " + transform.position.z);
+            // Debug.Log("x: " + transform.position.x + " y: " + transform.position.y + " z: " + transform.position.z);
         } 
 
     }

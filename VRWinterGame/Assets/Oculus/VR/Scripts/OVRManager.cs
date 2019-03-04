@@ -405,7 +405,7 @@ public class OVRManager : MonoBehaviour
 	/// The TCP listening port of Oculus Profiler Service, which will be activated in Debug/Developerment builds
 	/// When the app is running on editor or device, open "Tools/Oculus/Oculus Profiler Panel" to view the realtime system metrics
 	/// </summary>
-	public int profilerTcpPort = OVRSystemPerfMetrics.TcpListeningPort;
+	// public int profilerTcpPort = OVRSystemPerfMetrics.TcpListeningPort;
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 	/// <summary>
@@ -1075,10 +1075,10 @@ public class OVRManager : MonoBehaviour
 
 		instance = this;
 
-		Debug.Log("Unity v" + Application.unityVersion + ", " +
-				  "Oculus Utilities v" + OVRPlugin.wrapperVersion + ", " +
-				  "OVRPlugin v" + OVRPlugin.version + ", " +
-				  "SDK v" + OVRPlugin.nativeSDKVersion + ".");
+		//Debug.Log("Unity v" + Application.unityVersion + ", " +
+		//		  "Oculus Utilities v" + OVRPlugin.wrapperVersion + ", " +
+		//		  "OVRPlugin v" + OVRPlugin.version + ", " +
+		//		  "SDK v" + OVRPlugin.nativeSDKVersion + ".");
 
 #if !UNITY_EDITOR
 		if (IsUnityAlphaOrBetaVersion())
@@ -1182,16 +1182,16 @@ public class OVRManager : MonoBehaviour
 		if (Debug.isDebugBuild)
 		{
 			// Activate system metrics collection in Debug/Developerment build
-			if (GetComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>() == null)
-			{
-				gameObject.AddComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>();
-			}
-			OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer perfTcpServer = GetComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>();
-			perfTcpServer.listeningPort = profilerTcpPort;
-			if (!perfTcpServer.enabled)
-			{
-				perfTcpServer.enabled = true;
-			}
+			//if (GetComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>() == null)
+			//{
+			//	gameObject.AddComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>();
+			//}
+			//OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer perfTcpServer = GetComponent<OVRSystemPerfMetrics.OVRSystemPerfMetricsTcpServer>();
+			//perfTcpServer.listeningPort = profilerTcpPort;
+			//if (!perfTcpServer.enabled)
+			//{
+			//	perfTcpServer.enabled = true;
+			//}
 		}
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
