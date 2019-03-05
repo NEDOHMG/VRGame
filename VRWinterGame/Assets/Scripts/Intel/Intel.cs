@@ -7,18 +7,19 @@ using UnityEditor;
 using System.IO;
 using UnityEngine;
 
-public class Intel : MonoBehaviour {
+public class Intel : MonoBehaviour
+{
 
 
     #region Variables
 
     //public nuitrack.JointType[] typeJoint;
 
+    public static Intel sharedInstance;
+
     // References for the canvas 
-    //public Text LeftAnkleText;
     public Text LeftKneeText;
     public Text LeftHipText;
-    //public Text RightAnkleText;
     public Text RightKneeText;
     public Text RightHipText;
 
@@ -126,14 +127,10 @@ public class Intel : MonoBehaviour {
     public static string filename = "";
     public static string logfile = "";
 
-    private static Texture2D _staticRectTexture;
-    private static GUIStyle _staticRectStyle;
-
     public double SpineBaseCurrentAverage = 0.0;
 
-
-    // Singleton
-    public static Intel sharedInstance;
+    [HideInInspector]
+    public bool StartTheTrackingStage = false;
 
     // This is an experimental variable that will be remove in the future
     public bool resistanceMode = false;
@@ -142,52 +139,10 @@ public class Intel : MonoBehaviour {
 
     #endregion
 
-    // Note that this function is only meant to be called from OnGUI() functions.
-    public static void GUIDrawRect(Rect position, Color color)
-    {
-        if (_staticRectTexture == null)
-        {
-            _staticRectTexture = new Texture2D(1, 1);
-        }
-
-        if (_staticRectStyle == null)
-        {
-            _staticRectStyle = new GUIStyle();
-        }
-
-        _staticRectTexture.SetPixel(0, 0, color);
-        _staticRectTexture.Apply();
-
-        _staticRectStyle.normal.background = _staticRectTexture;
-
-        GUI.Box(position, GUIContent.none, _staticRectStyle);
-    }
-
     void Awake()
     {
-        // Initialize the vectors 
-        // Left
-        _footLeft = new Vector3(0.0f, 0.0f, 0.0f);
-        _ankleLeft = new Vector3(0.0f, 0.0f, 0.0f);
-        _kneeLeft = new Vector3(0.0f, 0.0f, 0.0f);
-        _hipLeft = new Vector3(0.0f, 0.0f, 0.0f);
-
-        // Center
-        _spine = new Vector3(0.0f, 0.0f, 0.0f);
-
-        // Right
-        _footRight = new Vector3(0.0f, 0.0f, 0.0f);
-        _ankleRight = new Vector3(0.0f, 0.0f, 0.0f);
-        _kneeRight = new Vector3(0.0f, 0.0f, 0.0f);
-        _hipRight = new Vector3(0.0f, 0.0f, 0.0f);
-
-        // Emergency stop 
-        _jointHandL = new Vector3(0.0f, 0.0f, 0.0f);
-        _jointHead = new Vector3(0.0f, 0.0f, 0.0f);
-
         // Initialize the singleton and share all the GameManager fields and methods with it
         sharedInstance = this;
-
     }
 
     // Use this for initialization
@@ -206,6 +161,24 @@ public class Intel : MonoBehaviour {
         _spineList = new List<double>();
         _differencesSpinY = new List<double>();
         _calspineList = new List<double>();
+
+        // Initialize the vectors 
+        // Left
+        _ankleLeft = Vector3.zero;
+        _kneeLeft = Vector3.zero;
+        _hipLeft = Vector3.zero;
+
+        // Center
+        _spine = Vector3.zero;
+
+        // Right
+        _ankleRight = Vector3.zero;
+        _kneeRight = Vector3.zero;
+        _hipRight = Vector3.zero;
+
+        // Emergency stop 
+        _jointHandL = Vector3.zero;
+        _jointHead = Vector3.zero;
 
         //initialize log file name based on current date and time
         DateTime dt = DateTime.Now;
@@ -248,67 +221,65 @@ public class Intel : MonoBehaviour {
         deltaTime /= 2.0;
         fps = 1.0 / deltaTime;
 
-        // Track first user 
-        // Track the first user
-        if (CurrentUserTracker.CurrentUser != 0)
-        {
-            nuitrack.Skeleton body = CurrentUserTracker.CurrentSkeleton;
-            //Debug.Log("Skeleton found");
-
-            // Get the information of the angles
-            ShowAngles(body);
-
-        }
-        else
-        {
-            return;
-            //Debug.Log("Skeleton not found");
-        }
-
-        // Emergency stop
-        //EmergencyStop(body);
-
-        //calibrate the Threshold
-        CalibrateThreshold(_spine.y);
-        //calibrate(_spinBase.y);
-
-        //track knee lateral motion
-        TrackKneeLateralMotion(_kneeLeft.x, _kneeRight.x);
-
-        //detect if Stopped
-        DetectStop(_spine.y);
-
-        //update the exercise state
-        UpdateExerciseState(_kneeLeftAngle, _kneeRightAngle, _hipLeftAngle, _hipRightAngle);
-
+        TrackTheUser(StartTheTrackingStage);
     }
 
     #region Events
 
+    void TrackTheUser( bool _letsTrack)
+    {
+        if (_letsTrack == true)
+        {
+            // Track the first user
+            if (CurrentUserTracker.CurrentUser != 0)
+            {
+                nuitrack.Skeleton body = CurrentUserTracker.CurrentSkeleton;
+
+                // Get the information of the angles
+                ShowAngles(body);
+
+            }
+            else
+            {
+                return;
+            }
+
+            // Emergency stop
+            //EmergencyStop(body);
+
+            //calibrate the Threshold
+            CalibrateThreshold(_spine.y);
+
+            //track knee lateral motion
+            TrackKneeLateralMotion(_kneeLeft.x, _kneeRight.x);
+
+            //detect if Stopped
+            DetectStop(_spine.y);
+
+            //update the exercise state
+            UpdateExerciseState(_kneeLeftAngle, _kneeRightAngle, _hipLeftAngle, _hipRightAngle);
+        }
+    }
+
     void ShowAngles(nuitrack.Skeleton body)
     {
-
         // Convert the nuitrack.Vector to Unity vector 
-        _footLeft = body.Joints[(int)nuitrack.JointType.LeftFoot].ToVector3() * 0.001f;
         _ankleLeft = body.Joints[(int)nuitrack.JointType.LeftAnkle].ToVector3() * 0.001f;
         _kneeLeft = body.Joints[(int)nuitrack.JointType.LeftKnee].ToVector3() * 0.001f;
         _hipLeft = body.Joints[(int)nuitrack.JointType.LeftHip].ToVector3() * 0.001f;
 
         _spine = body.Joints[(int)nuitrack.JointType.Waist].ToVector3() * 0.001f;
 
-        _footRight = body.Joints[(int)nuitrack.JointType.RightFoot].ToVector3() * 0.001f;
         _ankleRight = body.Joints[(int)nuitrack.JointType.RightAnkle].ToVector3() * 0.001f;
         _kneeRight = body.Joints[(int)nuitrack.JointType.RightKnee].ToVector3() * 0.001f;
         _hipRight = body.Joints[(int)nuitrack.JointType.RightHip].ToVector3() * 0.001f;
 
         // Calculation of the angles
-        //float _ankleLeftAngle = _anglesCalculation.AngleBetweenTwoVectors(_ankleLeft - _kneeLeft, _ankleLeft - _footLeft);
         _kneeLeftAngle = _anglesCalculation.AngleBetweenTwoVectors(_kneeLeft - _hipLeft, _kneeLeft - _ankleLeft);
         _hipLeftAngle = _anglesCalculation.AngleBetweenTwoVectors(_hipLeft - _spine, _hipLeft - _kneeLeft);
         _kneeRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_kneeRight - _hipRight, _kneeRight - _ankleRight);
         _hipRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_hipRight - _spine, _hipRight - _kneeRight);
 
-        //LeftAnkleText.text = "The left ankle angle is: " + _ankleLeftAngle.ToString();
         LeftKneeText.text = "The left knee angle is: " + _kneeLeftAngle.ToString();
         LeftHipText.text = "The left hip angle is: " + _hipLeftAngle.ToString();
         RightKneeText.text = "The right knee is: " + _kneeRightAngle.ToString();
@@ -698,6 +669,7 @@ public class Intel : MonoBehaviour {
         }
     }
 
+    // Declared but not in use
     private void EmergencyStop(nuitrack.Skeleton body)
     {
         _jointHandL = body.Joints[(int)nuitrack.JointType.LeftHand].ToVector3() * 0.001f;
