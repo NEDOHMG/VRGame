@@ -5,20 +5,11 @@ using UnityEngine.SceneManagement;
 
 public enum SceneCurrentStage { CalibrationScene, GameScene }
 
-
 public class ScenePlayerManager : MonoBehaviour
 {
     public static ScenePlayerManager sharedInstance;
 
-    /// <summary>
-    /// playerCalibrated will be use in future to change to the game scene
-    /// returnToCalibrationStage will return the user to the calibration stage if the bottom in the GUI of the game is pressed
-    /// </summary>
-
-    [HideInInspector]
-    public bool playerCalibrated = false, returnToCalibrationStage = false;
-
-    SceneCurrentStage currentScene;
+    public SceneCurrentStage currentScene;
 
     public string[] GameVRScenes;
 
@@ -27,19 +18,28 @@ public class ScenePlayerManager : MonoBehaviour
         sharedInstance = this;
     }
 
-    //void Update()
-    //{
-    //    LoadDifferentScene();
-    //}
-
-    public void CalibrationScene()
+    void Start()
     {
-        // here we go how to choose the scene
+        currentScene = SceneCurrentStage.CalibrationScene;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("The scene was load");
+            SkiGameScene();
+        }
+    }
+
+    public void SquatScene()
+    {
+        CurrentSceneGameManager(SceneCurrentStage.CalibrationScene);
     }
 
     public void SkiGameScene()
     {
-
+        CurrentSceneGameManager(SceneCurrentStage.GameScene);
     }
 
     //public void LoadDifferentScene()
@@ -61,7 +61,7 @@ public class ScenePlayerManager : MonoBehaviour
         {
             SceneManager.LoadScene(GameVRScenes[0]);
         }
-        else if (_currentScene == SceneCurrentStage.CalibrationScene)
+        else if (_currentScene == SceneCurrentStage.GameScene)
         {
             SceneManager.LoadScene(GameVRScenes[1]);
         }

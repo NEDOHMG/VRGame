@@ -11,7 +11,7 @@ public enum GameCalibrationState
 public class GameManagerCalibrationStage : MonoBehaviour
 {
     // Actual GameState
-    public GameState currentGameState = GameState.menu;
+    public GameState currentGameState;
 
     public static GameManagerCalibrationStage sharedInstance;
 
