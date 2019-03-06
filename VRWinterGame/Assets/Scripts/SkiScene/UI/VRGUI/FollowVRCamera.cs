@@ -9,7 +9,7 @@ public class FollowVRCamera : MonoBehaviour
 
     public Transform target;
 
-    public float xOffset = -2.5f, yOffset = -1.5f, zOffset = 10.0f;
+    public float xOffset = -3.2f, yOffset = -3.2f, zOffset = 10.0f;
 
     Vector3 totalOffSet;
 
