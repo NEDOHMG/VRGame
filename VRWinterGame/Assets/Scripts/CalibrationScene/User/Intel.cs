@@ -283,6 +283,8 @@ public class Intel : MonoBehaviour
         _kneeRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_kneeRight - _hipRight, _kneeRight - _ankleRight);
         _hipRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_hipRight - _spine, _hipRight - _kneeRight);
 
+        //Debug.Log(_kneeLeftAngle + ", " + _kneeRightAngle);
+
         // Separate private and public variables used in the adaptation 
         //KneeLeftAngle = _kneeLeftAngle;
         //HipLeftAngle = _hipLeftAngle;
@@ -475,10 +477,29 @@ public class Intel : MonoBehaviour
             // If we user do 4 squats we will determinate his skill
             counterSquats += 1;
 
-            if (counterSquats > 5)
+            if (counterSquats > 2)
             {
                 QuickANN.CalculateTheSkill = true;
             }
+
+            // this will update the user skill 
+
+            GameStaticVariables.UserSkillLevel = QuickANN.sharedThis.Adapt(LeftKneeFlexionAngle,
+                                                                            LeftKneeExtensionAngle,
+                                                                            RightKneeFlexionAngle,
+                                                                            RightKneeExtensionAngle,
+                                                                            LeftHipFlexionAngle,
+                                                                            LeftHipExtensionAngle,
+                                                                            RightHipFlexionAngle,
+                                                                            RightHipExtensionAngle,
+                                                                            ExtensionTime,
+                                                                            LeftKneeAverageDelta,
+                                                                            RightKneeAverageDelta);
+
+            Debug.Log(GameStaticVariables.UserSkillLevel);
+            Debug.Log(LeftKneeFlexionAngle + ", " + LeftKneeExtensionAngle + ", " + RightKneeFlexionAngle + ", " + RightKneeExtensionAngle +
+                      ", " + LeftHipFlexionAngle + ", " + LeftHipExtensionAngle + ", " + RightHipFlexionAngle + ", " + RightHipExtensionAngle
+                      + ", " + ExtensionTime + ", " + LeftKneeAverageDelta + ", " + RightKneeAverageDelta);
         }
 
         if (!Calibrated)

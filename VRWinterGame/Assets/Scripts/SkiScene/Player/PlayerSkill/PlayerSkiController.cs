@@ -47,6 +47,7 @@ public class PlayerSkiController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(GameStaticVariables.UserSkillLevel);
         impulseLevel = (ImpulseLevel)(GameStaticVariables.UserSkillLevel - 1);
         gameDifficulty = (LevelRampsGenerator)(GameStaticVariables.UserSkillLevel - 1);
     }

@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class QuickANN : MonoBehaviour
 {
+    public static QuickANN sharedThis;
+
     public double[] outputs;
     public double[,] weights;
     [HideInInspector]
     public int inodes = 9, onodes = 3, h1nodes = 6, h2nodes = 6;
     
     public static bool CalculateTheSkill = false;
+
+    void Awake()
+    {
+        sharedThis = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -122,17 +129,17 @@ public class QuickANN : MonoBehaviour
     {
         if (Intel.sharedInstance.StartTheTrackingStage == true)
         {
-            GameStaticVariables.UserSkillLevel = Adapt(Intel.sharedInstance.LeftKneeFlexionAngle,
-                Intel.sharedInstance.LeftKneeExtensionAngle,
-                Intel.sharedInstance.RightKneeFlexionAngle,
-                Intel.sharedInstance.RightKneeExtensionAngle,
-                Intel.sharedInstance.LeftHipFlexionAngle,
-                Intel.sharedInstance.LeftHipExtensionAngle,
-                Intel.sharedInstance.RightHipFlexionAngle,
-                Intel.sharedInstance.RightHipExtensionAngle,
-                Intel.sharedInstance.ExtensionTime,
-                Intel.sharedInstance.LeftKneeAverageDelta,
-                Intel.sharedInstance.RightKneeAverageDelta);
+            //GameStaticVariables.UserSkillLevel = Adapt(Intel.sharedInstance.LeftKneeFlexionAngle,
+            //    Intel.sharedInstance.LeftKneeExtensionAngle,
+            //    Intel.sharedInstance.RightKneeFlexionAngle,
+            //    Intel.sharedInstance.RightKneeExtensionAngle,
+            //    Intel.sharedInstance.LeftHipFlexionAngle,
+            //    Intel.sharedInstance.LeftHipExtensionAngle,
+            //    Intel.sharedInstance.RightHipFlexionAngle,
+            //    Intel.sharedInstance.RightHipExtensionAngle,
+            //    Intel.sharedInstance.ExtensionTime,
+            //    Intel.sharedInstance.LeftKneeAverageDelta,
+            //    Intel.sharedInstance.RightKneeAverageDelta);
             if(CalculateTheSkill == true)
             {
                 ScenePlayerManager.sharedInstance.SkiGameScene();
