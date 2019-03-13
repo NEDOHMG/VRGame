@@ -431,6 +431,7 @@
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceModContext.cs" />
      <Compile Include="Assets\Scripts\CalibrationScene\Animator\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\CalibrationScene\ANN\NeuralNet.cs" />
+     <Compile Include="Assets\Scripts\CalibrationScene\ANN\QuickANN.cs" />
      <Compile Include="Assets\Scripts\CalibrationScene\Furniture\LampColor.cs" />
      <Compile Include="Assets\Scripts\CalibrationScene\GameManagerCalibrationStage.cs" />
      <Compile Include="Assets\Scripts\CalibrationScene\User\AnglesCalculation.cs" />

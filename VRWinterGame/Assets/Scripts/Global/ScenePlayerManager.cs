@@ -13,6 +13,9 @@ public class ScenePlayerManager : MonoBehaviour
 
     public string[] GameVRScenes;
 
+    [HideInInspector]
+    public bool changeTheSceneInTheGame = false;
+
     void Awake()
     {
         sharedInstance = this;
@@ -23,14 +26,14 @@ public class ScenePlayerManager : MonoBehaviour
         currentScene = SceneCurrentStage.CalibrationScene;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("The scene was load");
-            SkiGameScene();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        Debug.Log("The scene was load");
+    //        SkiGameScene();
+    //    }
+    //}
 
     public void SquatScene()
     {

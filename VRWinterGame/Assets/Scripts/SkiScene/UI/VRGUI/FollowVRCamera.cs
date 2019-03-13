@@ -32,13 +32,19 @@ public class FollowVRCamera : MonoBehaviour
     void LateUpdate()
     {
         transform.position = target.transform.position + modifyPosition;
-        
-        if(inclination && modifyPosition.y <= 3.6)
+
+        if (inclination && modifyPosition.y <= 3.6)
         {
             modifyPosition.y += 0.005f;
             // Debug.Log("x: " + transform.position.x + " y: " + transform.position.y + " z: " + transform.position.z);
-        } 
+        }
 
     }
+
+    public void ResetPosition()
+    {
+        modifyPosition = totalOffSet;
+    }
+
 }
 

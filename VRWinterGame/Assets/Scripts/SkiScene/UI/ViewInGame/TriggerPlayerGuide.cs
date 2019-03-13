@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TriggerPlayerGuide : MonoBehaviour
 {
@@ -10,6 +8,8 @@ public class TriggerPlayerGuide : MonoBehaviour
         {
             // Debug.Log("Go Up");
             GameObject.Find("Indicator").SendMessage("StateDown");
+            // GameObject.Find("Player").SendMessage("ActuateThePGM");
+
         }
     }
 
@@ -19,6 +19,7 @@ public class TriggerPlayerGuide : MonoBehaviour
         {
             // Debug.Log("Go Down");
             GameObject.Find("Indicator").SendMessage("StateHigh");
+            // GameObject.Find("Player").SendMessage("RelaxThePGM");
         }
     }
 }

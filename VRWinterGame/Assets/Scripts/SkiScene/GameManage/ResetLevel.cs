@@ -35,6 +35,7 @@ public class ResetLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         ObjectSpeed.sharedInstance.ResetPositionSpeedUser();
+        FollowVRCamera.sharedInstance.ResetPosition();
         // CameraController.sharedInstance.ResetCamera();
         TimerSkill.sharedInstance.ResetTimerVariables();
     }
@@ -43,7 +44,6 @@ public class ResetLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         TriggerSpeed.sharedInstance.stop = false;
-        // PlayerSkiController.sharedInstance.startGame = true;
         ObjectSpeed.sharedInstance.rb.isKinematic = false;
         TimerSkill.sharedInstance.StartTimer();
     }

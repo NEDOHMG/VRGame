@@ -59,10 +59,10 @@ public class PlayerJump : MonoBehaviour
         {
             _impulseJump = 0.32f;
         }
-        else if (_impulseLevel == ImpulseLevel.five)
-        {
-            _impulseJump = 0.35f;
-        }
+        //else if (_impulseLevel == ImpulseLevel.five)
+        //{
+        //    _impulseJump = 0.35f;
+        //}
         return _impulseJump;
     }
 

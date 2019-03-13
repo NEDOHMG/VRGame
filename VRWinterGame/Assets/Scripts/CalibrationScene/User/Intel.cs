@@ -137,6 +137,9 @@ public class Intel : MonoBehaviour
     public double maxDeltaLeft = 0.0;
     public double maxDeltaRight = 0.0;
 
+    // This is the counter for the squats
+    public int counterSquats = 0;
+
     #endregion
 
     void Awake()
@@ -226,7 +229,7 @@ public class Intel : MonoBehaviour
 
     #region Events
 
-    void TrackTheUser( bool _letsTrack)
+    void TrackTheUser(bool _letsTrack)
     {
         if (_letsTrack == true)
         {
@@ -280,11 +283,11 @@ public class Intel : MonoBehaviour
         _kneeRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_kneeRight - _hipRight, _kneeRight - _ankleRight);
         _hipRightAngle = _anglesCalculation.AngleBetweenTwoVectors(_hipRight - _spine, _hipRight - _kneeRight);
 
-        LeftKneeText.text = "The left knee angle is: " + _kneeLeftAngle.ToString();
-        LeftHipText.text = "The left hip angle is: " + _hipLeftAngle.ToString();
-        RightKneeText.text = "The right knee is: " + _kneeRightAngle.ToString();
-        RightHipText.text = "The right hip angle is: " + _hipRightAngle.ToString();
-
+        // Separate private and public variables used in the adaptation 
+        //KneeLeftAngle = _kneeLeftAngle;
+        //HipLeftAngle = _hipLeftAngle;
+        //KneeRightAngle = _kneeRightAngle;
+        //HipRightAngle = _hipRightAngle;
     }
 
     //Experimental Function to Calibrate the threshold variable
@@ -468,6 +471,14 @@ public class Intel : MonoBehaviour
 
             //upload current values to neural network here
             //WriteLog(LeftKneeFlexionAngle + " " + LeftKneeExtensionAngle + " " + RightKneeFlexionAngle + " " + RightKneeExtensionAngle + " " + LeftHipFlexionAngle + " " + LeftHipExtensionAngle + " " + RightHipFlexionAngle + " " + RightHipExtensionAngle + " " + LeftKneeAverageDelta + " " + RightKneeAverageDelta + " " + _differencesSpinYMaxAverage + " " + _differencesSpinYMinAverage + " " + FlexionTime + " " + ExtensionTime);
+
+            // If we user do 4 squats we will determinate his skill
+            counterSquats += 1;
+
+            if (counterSquats > 5)
+            {
+                QuickANN.CalculateTheSkill = true;
+            }
         }
 
         if (!Calibrated)
