@@ -88,7 +88,7 @@ public class Intel : MonoBehaviour
     private List<double> _differencesSpinY;
     private double _differencesSpinYMaxAverage;
     private double _differencesSpinYMinAverage;
-    private bool _spinTracking = false;
+    // private bool _spinTracking = false;
     private bool _spinTrackingMax = true;
     private bool _spinTrackingMin = false;
 
@@ -695,7 +695,7 @@ public class Intel : MonoBehaviour
 
             _ySpinTimerHighStop = _ySpinTimerStart;
             _ySpinTimerStart = 0;
-            _spinTracking = false;
+            // _spinTracking = false;
             _spineList.Clear();
             _differencesSpinY.Clear();
         }

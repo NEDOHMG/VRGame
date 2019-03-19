@@ -40,26 +40,24 @@ public class GameManager : MonoBehaviour
     // Use this for start the game
     public void StartGame()
     {
-        if (PlayerHands.sharedInstance.isTracked)
-        {
+        //if (PlayerHands.sharedInstance.isTracked)
+        //{
             RampGenerator.sharedInstance.SpawnRamps();
             PlayerSkiController.sharedInstance.startGame = true;
             ChangeGameState(GameState.inTheGame);
-        }
+        //}
     }
 
     public void ResetTheGame()
     {
-        if (PlayerHands.sharedInstance.isTracked)
-        {
+        //if (PlayerHands.sharedInstance.isTracked)
+        //{
             ChangeGameState(GameState.inTheGame);
             // Spawn again the ramps randomly
             RampGenerator.sharedInstance.SpawnRamps();
             // Reset all the variables of the game
             ResetLevel.sharedInstance.ResetThePlayersMethods();
-            // Turn off again
-            // PlayerSkiController.sharedInstance.resetPositionUser = false;
-        }
+        //}
     }
 
     // Called when the player dies

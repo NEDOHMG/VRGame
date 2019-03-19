@@ -15,7 +15,7 @@ public class PlayerHands : MonoBehaviour
     static public PlayerHands sharedInstance;
 
     [HideInInspector]
-    public bool isTracked = false;
+    // public bool isTracked = false;
 
     void Awake()
     {
@@ -70,7 +70,7 @@ public class PlayerHands : MonoBehaviour
                 }
             }
 
-            isTracked = true;
+            // isTracked = true;
 
         }
         else

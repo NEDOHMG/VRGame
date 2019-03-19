@@ -8,8 +8,6 @@ public class PlayClip : MonoBehaviour
 
     AudioSource musicSource;
 
-    bool StartToPlay = true; // This can be used in the future to stop the music
-
     // Start is called before the first frame update
     void Start()
     {
