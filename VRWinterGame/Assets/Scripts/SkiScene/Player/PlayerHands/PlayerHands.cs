@@ -14,9 +14,6 @@ public class PlayerHands : MonoBehaviour
 
     static public PlayerHands sharedInstance;
 
-    [HideInInspector]
-    // public bool isTracked = false;
-
     void Awake()
     {
         sharedInstance = this;
